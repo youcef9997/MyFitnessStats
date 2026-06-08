@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:assessment2526.ViewModels"
+             x:Class="assessment2526.Views.SettingsPage"
+             x:DataType="vm:SettingsViewModel"
+             Title="SettingsPage">
+
+        <ScrollView>
+            <VerticalStackLayout Padding="30" Spacing="25">
+
+                <!-- HEADER -->
+                <Label Text="Settings" 
+                       FontAttributes="Bold" 
+                       HorizontalOptions="Center" />
+            
+            <!-- THEME CARD -->
+            <Border BackgroundColor="{DynamicResource CardColor}"
+                    StrokeShape="RoundRectangle 20"
+                    Padding="20">
+
+                <VerticalStackLayout Spacing="15">
+
+                    <Label Text="Appearance"
+                           HorizontalOptions="Center"/>
+                   
+                    <Border BackgroundColor="{DynamicResource PrimaryColor}"
+                            StrokeShape="RoundRectangle 10"
+                            Padding="10"
+                            HorizontalOptions="Fill">
+
+                        <Grid ColumnDefinitions="*,Auto">
+
+                            <!-- Selected value -->
+                            <Label Text="{Binding SelectedTheme}"
+                                   VerticalOptions="Center"
+                                   TextColor="White"/>
+                           
+                            <!-- Dropdown arrow -->
+                            <Label Text="▼"
+                                   Grid.Column="1"
+                                   VerticalOptions="Center"
+                                   FontSize="14"
+                                   TextColor="White"/>
+                                                      
+                            <!-- Hidden Picker on top -->
+                            <Picker ItemsSource="{Binding Themes}"
+                                    SelectedItem="{Binding SelectedTheme}"
+                                    Opacity="0.01"
+                                    Grid.ColumnSpan="2" />
+                        </Grid>
+                    </Border>
+
+                    <!-- FONT SIZE SETTING -->
+                    <Label Text="Text Size"
+                           HorizontalOptions="Center"
+                           SemanticProperties.Description="Text size setting" />
+
+                    <Border BackgroundColor="{AppThemeBinding Light=#1E88E5, Dark=#1E88E5}"
+                            StrokeShape="RoundRectangle 10"
+                            Padding="10">
+
+                        <Grid ColumnDefinitions="*,Auto">
+
+                            <Label Text="{Binding SelectedFontSize}"
+                                   VerticalOptions="Center"
+                                   SemanticProperties.Description="Currently selected text size"
+                                   TextColor="White"/>
+
+                            <Label Text="▼"
+                                   Grid.Column="1"
+                                   VerticalOptions="Center"
+                                   FontSize="14"
+                                   TextColor="White"/>
+
+                            <Picker ItemsSource="{Binding FontSizeOptions}"
+                                    SelectedItem="{Binding SelectedFontSize}"
+                                    Opacity="0.01"
+                                    Grid.ColumnSpan="2"
+                                    SemanticProperties.Description="Choose text size" />
+
+                        </Grid>
+                    </Border>
+
+                    <!-- AUTO PAUSE SETTING -->
+                    <Border BackgroundColor="{DynamicResource PrimaryColor}"
+                            StrokeShape="RoundRectangle 15"
+                            Padding="15">
+
+                        <Grid ColumnDefinitions="*,Auto"
+                              RowDefinitions="Auto,Auto"
+                              ColumnSpacing="10">
+
+                            <Label Text="Auto Pause"
+                                   Grid.Row="0"
+                                   Grid.Column="0"
+                                   TextColor="White"/>
+
+                            <Switch IsToggled="{Binding IsAutoPauseEnabled}"
+                                    SemanticProperties.Description="Enable or disable automatic pause based on movement detection" 
+                                    Grid.Row="0"
+                                    Grid.Column="1" />
+
+                            <Label Text="Automatically pause the run when no movement is detected."
+                                   Opacity="0.7"
+                                   Grid.Row="1"
+                                   Grid.Column="0"
+                                   Grid.ColumnSpan="2"
+                                   TextColor="White"/>
+
+                        </Grid>
+                    </Border>
+
+                    <!-- DISTANCE UNIT SETTING -->
+                    <Border StrokeShape="RoundRectangle 20"
+                            Padding="20">
+
+                        <VerticalStackLayout Spacing="15">
+
+                            <Label Text="Distance Unit"
+                                   FontAttributes="Bold"
+                                   FontSize="{DynamicResource SubtitleFontSize}"
+                                   SemanticProperties.HeadingLevel="Level2" />
+
+                            <Label Text="Choose whether distance and speed are shown in kilometres or miles."
+                                   Opacity="0.7" />
+
+                            <Border BackgroundColor="{AppThemeBinding Light=#1E88E5, Dark=#1E88E5}"
+                                    StrokeShape="RoundRectangle 10"
+                                    Padding="10"
+                                    HorizontalOptions="Fill">
+
+                                <Grid ColumnDefinitions="*,Auto"
+                                      HorizontalOptions="Fill">
+
+                                    <Label Text="{Binding SelectedDistanceUnit}"
+                                           VerticalOptions="Center"
+                                           TextColor="White"
+                                           FontSize="{DynamicResource BodyFontSize}"
+                                           SemanticProperties.Description="Selected distance unit" />
+
+                                    <Label Text="▼"
+                                           Grid.Column="1"
+                                           VerticalOptions="Center"
+                                           TextColor="White" />
+
+                                    <Picker ItemsSource="{Binding DistanceUnits}"
+                                            SelectedItem="{Binding SelectedDistanceUnit}"
+                                            Opacity="0.01"
+                                            Grid.ColumnSpan="2"
+                                            SemanticProperties.Description="Choose distance unit" />
+
+                                </Grid>
+                            </Border>
+
+                        </VerticalStackLayout>
+                    </Border>
+
+
+                </VerticalStackLayout>
+            
+            </Border>
+                
+        
+       </VerticalStackLayout>
+        
+  </ScrollView>
+    
+</ContentPage>

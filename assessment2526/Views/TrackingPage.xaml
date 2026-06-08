@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:assessment2526.ViewModels"
+             xmlns:maps="clr-namespace:Microsoft.Maui.Controls.Maps;assembly=Microsoft.Maui.Controls.Maps"
+             x:Class="assessment2526.Views.TrackingPage"
+             x:DataType="vm:TrackingViewModel"
+             Title="TrackingPage">
+
+    <Grid RowDefinitions="Auto,*"
+      Padding="20"
+      RowSpacing="15">
+
+        <VerticalStackLayout Grid.Row="0"
+                             Spacing="6">
+
+            <Grid ColumnDefinitions="*,*,*"
+                  ColumnSpacing="8">
+
+                <Button Text="Stats"
+                        Grid.Column="0"
+                        Command="{Binding ShowStatsCommand}" />
+
+                <Button Text="Map"
+                        Grid.Column="1"
+                        Command="{Binding ShowMapCommand}" 
+                        SemanticProperties.Description="Show the live route map"/>
+
+                <Button Text="Compass"
+                        Grid.Column="2"
+                        Command="{Binding ShowCompassCommand}"
+                        SemanticProperties.Description="Show compass"/>
+
+            </Grid>
+
+            <Border StrokeShape="RoundRectangle 15"
+                    Padding="12"
+                    BackgroundColor="{AppThemeBinding Light=#F5F5F5, Dark=#1E1E1E}">
+
+                <Border.GestureRecognizers>
+                    <SwipeGestureRecognizer Direction="Left"
+                                            Command="{Binding NextViewCommand}" />
+                    <SwipeGestureRecognizer Direction="Right"
+                                            Command="{Binding PreviousViewCommand}" />
+                </Border.GestureRecognizers>
+
+                <Label Text="Swipe left or right"
+                       HorizontalOptions="Center"
+                       Opacity="0.75"
+                       SemanticProperties.Description="Swipe this area left or right to switch between stats, map, and compass" />
+
+            </Border>
+        </VerticalStackLayout>
+        
+        <ScrollView Grid.Row="1"
+                    IsVisible="{Binding IsStatsVisible}">
+
+            <!-- STATS VIEW -->
+            <VerticalStackLayout Spacing="20">
+
+                <Border BackgroundColor="{StaticResource CardColor}"
+                        StrokeShape="RoundRectangle 25"
+                        Padding="25">
+
+                    <Label Text="{Binding TimeText}"
+                           TextColor="{DynamicResource TextColor}"
+                           FontSize="48"
+                           HorizontalOptions="Center"/>
+
+                </Border>
+
+                <Label Text="{Binding StatusText}"
+                       TextColor="{DynamicResource TextColor}"
+                       HorizontalOptions="Center"/>
+
+                <Grid ColumnDefinitions="*,*">
+
+                    <Border Grid.Column="0" BackgroundColor="{StaticResource CardColor}">
+                        <VerticalStackLayout Padding="15">
+
+                            <Label Text="Distance"/>
+
+                            <Label Text="{Binding DistanceText}" 
+                                   TextColor="{DynamicResource TextColor}"
+                                   FontSize="28"/>
+
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <Border Grid.Column="1" BackgroundColor="{StaticResource CardColor}">
+                        <VerticalStackLayout Padding="15">
+
+                            <Label Text="Speed"/>
+
+                            <Label Text="{Binding SpeedText}" 
+                                   TextColor="{DynamicResource TextColor}"
+                                   FontSize="28"/>
+
+                        </VerticalStackLayout>
+                    </Border>
+
+                </Grid>
+
+                <Button Text="Start Run" 
+                        Command="{Binding StartCommand}"/>
+
+                <Button Text="{Binding PauseButtonText}"
+                        Command="{Binding PauseResumeCommand}"/>
+
+                <Button Text="Stop Run"
+                        Command="{Binding StopCommand}"
+                        BackgroundColor="Red"/>
+
+            </VerticalStackLayout>
+
+        </ScrollView>
+
+        <!-- Map view -->
+        <Grid Grid.Row="1"
+              IsVisible="{Binding IsMapVisible}">
+
+            <maps:Map x:Name="MapView"
+                      IsShowingUser="True"/>
+
+        </Grid>
+
+        <!-- Scrollable compass view -->
+        <ScrollView Grid.Row="1"
+                    IsVisible="{Binding IsCompassVisible}">
+
+            <VerticalStackLayout Spacing="20">
+
+                <Border StrokeShape="RoundRectangle 25"
+                        Padding="25">
+
+                    <VerticalStackLayout Spacing="15">
+
+                        <Label Text="Compass"
+                               Style="{StaticResource Headline}"
+                               SemanticProperties.HeadingLevel="Level1" />
+
+                        <Label Text="{Binding CompassHeadingText}"
+                               FontSize="{DynamicResource TitleFontSize}"
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"
+                               SemanticProperties.Description="Current compass heading in degrees" />
+
+                        <Label Text="{Binding CompassDirectionText}"
+                               FontSize="{DynamicResource SubtitleFontSize}"
+                               HorizontalOptions="Center"
+                               SemanticProperties.Description="Current compass direction" />
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+            </VerticalStackLayout>
+            
+        </ScrollView>
+    
+    </Grid>
+    
+</ContentPage>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:assessment2526.ViewModels"
+             x:Class="assessment2526.Views.HelpPage"
+             x:DataType="vm:HelpViewModel"
+             Title="HelpPage">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="25" Spacing="20">
+
+            <!-- PAGE TITLE -->
+            <Label Text="Help &amp; Instructions"
+                   Style="{StaticResource Headline}"
+                   SemanticProperties.HeadingLevel="Level1"
+                   SemanticProperties.Description="Help and instructions page" />
+
+            <!-- INTRO CARD -->
+            <Border StrokeShape="RoundRectangle 20"
+                    Padding="20">
+
+                <VerticalStackLayout Spacing="10">
+
+                    <Label Text="How to use MyFitnessStats"
+                           FontAttributes="Bold"
+                           FontSize="{DynamicResource SubtitleFontSize}"
+                           SemanticProperties.HeadingLevel="Level2" />
+
+                    <Label Text="This page explains how to use the main features of the app."
+                           Opacity="0.8"
+                           SemanticProperties.Description="Introduction explaining how to use the app" />
+
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- STEP 1 -->
+            <Border StrokeShape="RoundRectangle 20"
+                    Padding="20">
+
+                <VerticalStackLayout Spacing="10">
+
+                    <Label Text="1. Start a Run"
+                           FontAttributes="Bold"
+                           FontSize="{DynamicResource SubtitleFontSize}"
+                           SemanticProperties.HeadingLevel="Level2"
+                           SemanticProperties.Description="Step one, start a run" />
+
+                    <Label Text="On the Home page, tap Start Run to open the tracking screen. From there, press Start Run again to begin tracking your session."
+                           Opacity="0.8" />
+
+                    <Label Text="This starts the timer, GPS route tracking, accelerometer movement detection, compass readings, haptic feedback, and text-to-speech feedback."
+                           Opacity="0.8" />
+
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- STEP 2 -->
+            <Border StrokeShape="RoundRectangle 20"
+                    Padding="20">
+
+                <VerticalStackLayout Spacing="10">
+
+                    <Label Text="2. Pause or Stop a Run"
+                           FontAttributes="Bold"
+                           FontSize="{DynamicResource SubtitleFontSize}"
+                           SemanticProperties.HeadingLevel="Level2"
+                           SemanticProperties.Description="Step two, pause or stop a run" />
+
+                    <Label Text="Use the Pause Run button to pause the timer. Press Resume Run to continue."
+                           Opacity="0.8" />
+
+                    <Label Text="Use Stop Run to finish the session. The app will show a run summary and save the completed run to the History page."
+                           Opacity="0.8" />
+
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- STEP 3 -->
+            <Border StrokeShape="RoundRectangle 20"
+                    Padding="20">
+
+                <VerticalStackLayout Spacing="10">
+
+                    <Label Text="3. Use the Tracking Page"
+                           FontAttributes="Bold"
+                           FontSize="{DynamicResource SubtitleFontSize}"
+                           SemanticProperties.HeadingLevel="Level2"
+                           SemanticProperties.Description="Step three, use the tracking views" />
+
+                    <Label Text="The Tracking page includes three views: Stats, Map, and Compass."
+                           Opacity="0.8" />
+
+                    <Label Text="Stats shows your timer, distance, speed, and status. Map shows your current location and live route. Compass shows your current heading and direction."
+                           Opacity="0.8" />
+
+                    <Label Text="You can switch views using the buttons or by swiping on the dedicated swipe area."
+                           Opacity="0.8" />
+
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- STEP 4 -->
+            <Border StrokeShape="RoundRectangle 20"
+                    Padding="20">
+
+                <VerticalStackLayout Spacing="10">
+
+                    <Label Text="4. Change Accessibility Settings"
+                           FontAttributes="Bold"
+                           FontSize="{DynamicResource SubtitleFontSize}"
+                           SemanticProperties.HeadingLevel="Level2"
+                           SemanticProperties.Description="Step four, change accessibility settings" />
+
+                    <Label Text="Open Settings to choose between System, Light, or Dark theme."
+                           Opacity="0.8" />
+
+                    <Label Text="You can also change the text size to improve readability and turn Auto Pause on or off."
+                           Opacity="0.8" />
+
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- STEP 5 -->
+            <Border StrokeShape="RoundRectangle 20"
+                    Padding="20">
+
+                <VerticalStackLayout Spacing="10">
+
+                    <Label Text="5. View Run History"
+                           FontAttributes="Bold"
+                           FontSize="{DynamicResource SubtitleFontSize}"
+                           SemanticProperties.HeadingLevel="Level2"
+                           SemanticProperties.Description="Step five, view run history" />
+
+                    <Label Text="After stopping a run, open View History from the Home page to see saved run sessions."
+                           Opacity="0.8" />
+
+                    <Label Text="Each history card can show the run date, total time, distance, and speed."
+                           Opacity="0.8" />
+
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- ACCESSIBILITY CARD -->
+            <Border StrokeShape="RoundRectangle 20"
+                    Padding="20">
+
+                <VerticalStackLayout Spacing="10">
+
+                    <Label Text="Accessibility Features"
+                           FontAttributes="Bold"
+                           FontSize="{DynamicResource SubtitleFontSize}"
+                           SemanticProperties.HeadingLevel="Level2" />
+
+                    <Label Text="• Light, dark, and system theme support" />
+                    <Label Text="• Adjustable text size" />
+                    <Label Text="• Large touch-friendly buttons" />
+                    <Label Text="• Text-to-speech feedback" />
+                    <Label Text="• Haptic feedback" />
+                    <Label Text="• Screen reader descriptions for key controls" />
+
+                </VerticalStackLayout>
+            </Border>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

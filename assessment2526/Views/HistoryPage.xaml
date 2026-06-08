@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:assessment2526.ViewModels"
+              xmlns:models="clr-namespace:assessment2526.Models"
+             x:Class="assessment2526.Views.HistoryPage"
+             x:DataType="vm:HistoryViewModel"
+             Title="HistoryPage">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="25" Spacing="20">
+
+            <Label Text="Run History"
+                   FontSize="32"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+
+            <CollectionView ItemsSource="{Binding Runs}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:SessionStats">
+                        <Border StrokeShape="RoundRectangle 20"
+                                Padding="15"
+                                Margin="0,5">
+
+                            <VerticalStackLayout Spacing="5">
+                                <Label Text="{Binding Date, StringFormat='Run on {0:dd MMM yyyy HH:mm}'}"
+                                       FontAttributes="Bold"
+                                       FontSize="16" />
+
+                                <Label Text="{Binding Time}" />
+                                <Label Text="{Binding Distance}" />
+                                <Label Text="{Binding Speed}" />
+                            </VerticalStackLayout>
+
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
