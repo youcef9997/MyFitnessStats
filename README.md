@@ -3,7 +3,7 @@
 
 MyFitnessStas is a mobile app developed on .NET MAUI 9.0. It is a fitness tracking application to track your running activities.
 
-<img width="426" height="888" alt="image" src="https://github.com/user-attachments/assets/0c140406-45a3-4f46-9c7d-2f1e7cbe097e" />
+<img width="1356" height="846" alt="image" src="https://github.com/user-attachments/assets/fff98c1d-fc63-4ae3-8003-9b1f3ba13c3e" />
 
 
 ---
